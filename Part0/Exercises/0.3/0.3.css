@@ -11,29 +11,67 @@ h1 {
 	color:thistle;
 	text-align: Center;
 	margin:0px;
+	margin-bottom: 20px;
 }
-h2{
-	color:thistle;
-	text-align: Center;
-	margin:60px;
-}
+
 
 form {
 	color:thistle;
 	text-align: left;
 	margin: 20px;
+	margin: 0 auto;
+	width: 500px;
+	padding: 1em;
+	border: 1px solid thistle;
+	border-radius: 1em;
 }
 
-label{
+
+label {
 	color:thistle;
 	font-size: 15px;
-}
+	/* Uniform size & alignment */
+	display: inline-block;
+	width: 90px;
+	text-align: right;
+  }
 
 input, textarea{
 	background-color: black;
 	color: thistle;
 	border-color: thistle;
+	border-radius: 5px;
 	margin: 5px;
+	font: sans-serif;
+	width: 300px;
+	box-sizing: border-box;
+}
+
+input:focus,
+textarea:focus {
+	border-width: 3px ;
+  	border-color:rgb(235, 158, 235);
+}
+
+textarea {
+	vertical-align: top;
+	height: 5em;
+  }
+
+button {
+	background-color: black;
+	color: thistle;
+	border-color: thistle;
+	margin-top: .5em;
+	margin-left: 340px;
+	border-radius: 5px;
+
+}
+
+ul{
+	list-style: none;
+  	padding: 0;
+ 	 margin: 0;
 }
 
 p {
