@@ -14,18 +14,6 @@ const Part = (props) => {
   )
 }
 
-
-const Test = (props) => {
-  let parts1 = props.course.parts
-  console.log(props.course.parts.name)
-  return (
-    <>
-    {/* {names.exercises.map((value) => <div><p>{value}</p></div>)} */}
-    </>
-  );
-}
-
-
 const Content = (props) => {
   return (
     <div>
@@ -78,7 +66,6 @@ const App = () => {
       <Header course={course}/>
       <Content course={course}/>
       <Total course={course}/>
-      <Test course={course}/>
     </>
   )
 }
