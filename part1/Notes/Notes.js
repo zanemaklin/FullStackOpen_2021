@@ -140,3 +140,138 @@ const square = p => {
   return p * p
 }
 
+// Object Methods and "this" ------------
+
+const arto = {
+  name: 'Arto Hellas',
+  age: 35,
+  education: 'PhD',
+  greet: function() {
+    console.log('hello, my name is ' + this.name)
+  },
+}
+
+arto.greet()  // "hello, my name is Arto Hellas" gets printed
+
+
+// Methods
+
+const arto = {
+  name: 'Arto Hellas',
+  age: 35,
+  education: 'PhD',
+  greet: function() {
+    console.log('hello, my name is ' + this.name)
+  },
+}
+
+arto.growOlder = function() {
+  this.age += 1
+}
+
+console.log(arto.age)   // 35 is printed
+arto.growOlder()
+console.log(arto.age)   // 36 is printed
+
+// Referencing Methods as functions
+
+const arto = {
+  name: 'Arto Hellas',
+  age: 35,
+  education: 'PhD',
+  greet: function() {
+    console.log('hello, my name is ' + this.name)
+  },
+  doAddition: function(a, b) {
+    console.log(a + b)
+  },
+}
+
+arto.doAddition(1, 4)        // 5 is printed
+
+const referenceToAddition = arto.doAddition
+referenceToAddition(10, 15)   // 25 is printed
+
+// this
+
+  // references the object eg in example above arto is the object
+  // so using "this.name" is the same as "arto.name" in example above.
+
+  // When you store a method reference as a variable the object reference
+  // eg arto is lost for example...
+
+const referenceToAddition = arto.doAddition
+referenceToAddition(10, 15)   // 25 is printed
+
+  // This above works since the object isn't referenced
+  // but below the object is referenced by "this" and the
+  // object is lost after the method reference referenceToGreet is 
+  // created "arto.greet" becomes "___.greet" so it is undefined
+
+arto.greet()       // "hello, my name is Arto Hellas" gets printed
+
+const referenceToGreet = arto.greet
+referenceToGreet() // prints "hello, my name is undefined"
+
+  // to keep the "arto" object referenced use .bind(object) so
+
+const referenceToGreet == arto.greet.bind(arto)
+
+
+// Classes ------------------
+
+class Person {
+  constructor(name, age) {
+    this.name = name
+    this.age = age
+  }
+  greet() {
+    console.log('hello, my name is ' + this.name)
+  }
+}
+
+const adam = new Person('Adam Ondra', 35)
+adam.greet()
+
+const janja = new Person('Janja Garnbret', 22)
+janja.greet()
+
+
+
+// Component state, event handlers -----------------
+
+  // You can assign props directly in function as a parameter
+  // From this 
+  const Hello = (props) => {
+    const { name, age } = props
+
+  // To this
+  const Hello = ({ name, age }) => {
+
+
+
+const Hello = (props) => {
+  return (
+    <div>
+      <p>
+        Hello {props.name}, you are {props.age} years old
+      </p>
+    </div>
+  )
+}
+
+const App = () => {
+  const name = 'Peter'
+  const age = 10
+
+  return (
+    <div>
+      <h1>Greetings</h1>
+      <Hello name="Maya" age={26 + 10} />
+      <Hello name={name} age={age} />
+    </div>
+  )
+}
+
+//Page Re-rendering ---------
+
